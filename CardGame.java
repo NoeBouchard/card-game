@@ -1,7 +1,7 @@
 public class CardGame {
     // prompt user in terminal for the number of players
 
-    // creates the pack of cards using method in Card.java
+    // creates the pack of cards using method in pack.java
 
 
     // then shuffle the pack, distribute to the player's hands (4 cards each) in round robin fashion
