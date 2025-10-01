@@ -1,7 +1,6 @@
-import java.util.*;
 import java.io.*;
 import java.nio.file.*;
-import java.util.stream.*;
+import java.util.*;
 public class Pack {
     private ArrayList<Card> pack;
     private final Random rand = new Random();
@@ -11,9 +10,16 @@ public class Pack {
     }
 
     public void createPack(int numberOfPlayers) {
-        for (int i = 1; i <= 8*numberOfPlayers; i++) {
-            int randomNumber = rand.nextInt(8*numberOfPlayers) + 1;
-            pack.add(new Card(randomNumber));
+        for (int i = 1; i <= numberOfPlayers; i++) {
+            for (int j = 0; j < 4; j++) {
+                pack.add(new Card(i));
+            }
+        }
+
+        int totalCards = numberOfPlayers * 8;
+        while (pack.size() < totalCards) {
+            int randomNum = rand.nextInt(totalCards) + 1;
+            pack.add(new Card(randomNum));
         }
     }
 
