@@ -2,10 +2,13 @@
 
 public class CardGame {
     // prompt user in terminal for the number of players
+    private static java.util.Scanner scanner = new java.util.Scanner(System.in);
 
     public static void main(String[] args) {
         CardGame cardGame = new CardGame();
         cardGame.promptNumberOfPlayers();
+        cardGame.createPack();
+        scanner.close();
     }
 
     private static int numberOfPlayers;
@@ -20,13 +23,25 @@ public class CardGame {
     
     public void promptNumberOfPlayers() {
         System.out.print("Enter the number of players: ");
-        java.util.Scanner scanner = new java.util.Scanner(System.in);
         int num = scanner.nextInt();
+        scanner.nextLine(); // consume newline
         set_number_of_players(num);
-        scanner.close();
+    }
+
+    public String getPackFileName() {
+        System.out.print("Enter the name of the pack file: ");
+        String fileName = scanner.nextLine();
+        return fileName;
     }
 
     // creates the pack of cards using method in pack.java
+    public void createPack() {
+        Pack pack = new Pack();
+        pack.createPack(numberOfPlayers);
+        pack.shufflePack();
+        String fileName = getPackFileName();
+        pack.printPackToFile(fileName);
+    }
 
 
     // then shuffle the pack, distribute to the player's hands (4 cards each) in round robin fashion
