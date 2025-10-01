@@ -38,7 +38,6 @@ public class CardGame {
     public void createPack() {
         Pack pack = new Pack();
         pack.createPack(numberOfPlayers);
-        pack.shufflePack();
         String fileName = getPackFileName();
         pack.printPackToFile(fileName);
     }

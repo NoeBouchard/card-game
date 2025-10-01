@@ -1,6 +1,7 @@
 import java.util.*;
 import java.io.*;
-
+import java.nio.file.*;
+import java.util.stream.*;
 public class Pack {
     private ArrayList<Card> pack;
     private final Random rand = new Random();
@@ -16,8 +17,23 @@ public class Pack {
         }
     }
 
-    public void shufflePack() {
-        Collections.shuffle(pack);
+    public void readPackFromFile(String fileName) {
+            Path path = Paths.get(fileName);
+            pack = new ArrayList<>();
+            try {
+                List<String> lines = Files.readAllLines(path);
+                for (String line : lines) {
+                    pack.add(new Card(Integer.parseInt(line)));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+
+    public void shufflePack(String fileName) {
+            readPackFromFile(fileName);
+            Collections.shuffle(pack);
+            printPackToFile(fileName);
     }
 
     public void printPackToFile(String fileName) {
