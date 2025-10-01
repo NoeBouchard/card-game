@@ -34,16 +34,16 @@ public class CardGame {
         return fileName;
     }
 
-    // creates the pack of cards using method in pack.java
+    // creates the pack of cards using method in pack.java and shuffles the pack file
     public void createPack() {
         Pack pack = new Pack();
         pack.createPack(numberOfPlayers);
         String fileName = promptPackFileName();
         pack.printPackToFile(fileName);
+        pack.shufflePack(fileName);
     }
-
-
-    // then shuffle the pack, distribute to the player's hands (4 cards each) in round robin fashion
+    
+    //distribute to the player's hands (4 cards each) in round robin fashion
 
     // then distribute the rest of the cards in the same fashion into n different decks (where n is the number of players)
     
