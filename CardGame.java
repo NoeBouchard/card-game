@@ -28,7 +28,7 @@ public class CardGame {
         set_number_of_players(num);
     }
 
-    public String getPackFileName() {
+    public String promptPackFileName() {
         System.out.print("Enter the name of the pack file: ");
         String fileName = scanner.nextLine();
         return fileName;
@@ -38,7 +38,7 @@ public class CardGame {
     public void createPack() {
         Pack pack = new Pack();
         pack.createPack(numberOfPlayers);
-        String fileName = getPackFileName();
+        String fileName = promptPackFileName();
         pack.printPackToFile(fileName);
     }
 
