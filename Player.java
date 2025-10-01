@@ -1,7 +1,7 @@
-import java.util.ArrayList;
 public class Player {
 
     // player has a hand of cards (array of 4 cards)
+    private ArrayList<Integer> hand;
 
     // nested class that decides hich card to discard anduse deck class to draw and discard cards into/out of hand
 
