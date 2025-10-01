@@ -23,6 +23,7 @@ public class CardGame {
         java.util.Scanner scanner = new java.util.Scanner(System.in);
         int num = scanner.nextInt();
         set_number_of_players(num);
+        scanner.close();
     }
 
     // creates the pack of cards using method in pack.java
